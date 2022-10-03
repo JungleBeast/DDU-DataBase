@@ -1,4 +1,4 @@
-class Components{
+class Component{
 boolean Button_ON;
 
 int x;  

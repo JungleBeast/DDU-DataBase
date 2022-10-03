@@ -1,10 +1,17 @@
+//Importing PlugIn
 import de.bezier.data.sql.*;
 MySQL msql;
 
+//Background
 int X_AXIS;
 int Y_AXIS;
-
 color c1, c2;
+
+//Import image
+PImage Logo;
+
+
+Component myComponents     = new Component();
 
 void setup(){
 size(840, 680);
@@ -14,12 +21,15 @@ c2 = color(0, 0, 20);
 
 noLoop();
 
+Logo = loadImage("EasyNote_logo.png");
 }
 
-void draw(){
-  
+void draw(){ 
 //Background
 setGradient(0, 0, 840, 680, c1, c2, Y_AXIS);  
+//Logo
+Logo.resize(200,150);
+image(Logo, 20, 0);
 }
 
 
