@@ -10,16 +10,19 @@ color c1, c2;
 //Import image
 PImage Logo;
 
-
+GUIHandler guiHandler      = new GUIHandler();
 Component myComponents     = new Component();
+Tab T                      = new Tab(300,300,50,50);
 
 void setup(){
 size(840, 680);
-
 c1 = color(0, 39, 70);
 c2 = color(0, 0, 20);
-
+rectMode(CENTER);
 noLoop();
+
+T = guiHandler.createTab(420,340,300,400);
+
 
 Logo = loadImage("EasyNote_logo.png");
 }
@@ -30,6 +33,8 @@ setGradient(0, 0, 840, 680, c1, c2, Y_AXIS);
 //Logo
 Logo.resize(200,150);
 image(Logo, 20, 0);
+
+guiHandler.displayAll();
 }
 
 
