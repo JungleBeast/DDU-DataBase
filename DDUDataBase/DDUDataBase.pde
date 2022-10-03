@@ -12,7 +12,8 @@ PImage Logo;
 
 GUIHandler guiHandler      = new GUIHandler();
 Component myComponents     = new Component();
-Tab T                      = new Tab(300,300,50,50);
+Tab T                      = new Tab(420,340,300,400);
+TextField TF               = new TextField(420,340,300,400);
 
 void setup(){
 size(840, 680);
@@ -22,7 +23,7 @@ rectMode(CENTER);
 noLoop();
 
 T = guiHandler.createTab(420,340,300,400);
-
+TF = guiHandler.createTextField(420,340,300,400);
 
 Logo = loadImage("EasyNote_logo.png");
 }
@@ -51,4 +52,7 @@ void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) 
       line(x, i, x+w, i);
     }  
   }
+}
+void keyPressed(){
+  guiHandler.WriteText();
 }
