@@ -10,18 +10,31 @@ return T;
 }
  TextField createTextField(int x, int y, int w, int h){ 
  TextField TF = new TextField(x,y,w,h);
- myComponents.add(T);
+ myComponents.add(TF);
    return TF;
  }
-
- void displayAll(){
-  for(Component C : myComponents){
-  C.Display();
-  }
- }  
- void WriteText(){
- for(Component C : myComponents){
-  C.WriteText();
-  }
+ 
+ ClickButton createClickButton(int x, int y, int w, int h){ 
+ ClickButton CB = new ClickButton(x,y,w,h);
+ myComponents.add(CB);
+   return CB;
  }
+
+void displayAll(){
+ for(Component C : myComponents){
+    C.Tegn();
+}}
+  
+  void detectClick(){
+  for(Component C : myComponents){
+    C.mousePress();
+}}
+  
+  void detectKeyPressed(){
+    for(Component C : myComponents){
+    C.keyPress();
+}}
+  
+  
+  
 }

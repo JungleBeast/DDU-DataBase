@@ -5,6 +5,8 @@ int x;
 int y;
 int h;
 int w;
+
+int counter = 1;
   
 boolean SelectedField = false;
 
@@ -20,4 +22,7 @@ void Click(){}
 void Release(){}   
 void Display(){}
 void WriteText(){}
+void Tegn(){}
+void mousePress(){}
+void keyPress(){}
 }

@@ -1,5 +1,4 @@
 class Tab extends Component{
-
 Tab(int xin, int yin, int win, int hin){
 x= xin;
 y= yin;
@@ -9,7 +8,7 @@ h= hin;
 }
   
 
-void Display(){
+void Tegn(){
 fill(255);
 rect(x, y, w, h, tl, tr, br, bl);
 
