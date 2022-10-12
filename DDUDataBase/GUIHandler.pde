@@ -22,17 +22,20 @@ return T;
 
 void displayAll(){
  for(Component C : myComponents){
-    C.Tegn();
+    C.Display();
 }}
   
   void detectClick(){
   for(Component C : myComponents){
-    C.mousePress();
+    C.Click();
 }}
-  
+    void detectRelease(){
+  for(Component C : myComponents){
+    C.Release();
+}}
   void WriteText(){
     for(Component C : myComponents){
-    C.keyPress();
+    C.Release();
 }}
   
   

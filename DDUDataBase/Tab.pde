@@ -8,7 +8,7 @@ h= hin;
 }
   
 
-void Tegn(){
+void Display(){
 fill(255);
 rect(x, y, w, h, tl, tr, br, bl);
 

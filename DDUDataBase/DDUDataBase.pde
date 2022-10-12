@@ -41,8 +41,6 @@ image(Logo, 20, 0);
 guiHandler.displayAll();
 }
 
-
-
 void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
 
   noFill();
@@ -56,8 +54,14 @@ void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) 
     }  
   }
 }
+void mousePressed(){
+  guiHandler.detectClick();
+}
+void mouseReleased(){
+  guiHandler.detectRelease();
+}
 void keyPressed(){
  guiHandler.WriteText();
- TF.WriteText();
+ TF.Release();
   
 }

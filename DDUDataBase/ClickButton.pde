@@ -1,22 +1,35 @@
 class ClickButton extends Component{
 
-ClickButton(int xin, int yin, int win, int hin){
-x= xin;
-y= yin;
-w= win;
-h= hin;  
-    
+  ClickButton(int xin,int yin,int win,int hin){
+ x= xin;
+ y= yin;
+ w= win;
+ h= hin;
 }
   
- void Tegn(){
-  if(mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h && mousePressed){
-  noStroke();
-  fill(40,200,40);
-  rect (x , y , w, h);
-  }else{
-  fill(100,100,100);
-  stroke(10);
-  rect (x , y , w , h);
-  }}
   
+  void detectClick(){
+    if(mouseX > x && mouseX < x + w && 
+       mouseY > y && mouseY < y + h){
+       SelectedField = true;}
+       }
+  void Release(){
+   SelectedField = false;
+  }
+  
+ void Display(){
+ 
+   if(SelectedField){
+     fill(50,200,100);
+   }else{
+     fill(200,50,100);}
+   
+    rect(x, y, w, h);
+   
+   fill(10,50,100);
+   rect(x+10,y+10,w-20,h-20); 
+   fill(255);
+   textSize(25);
+   text("Click Button", x+35, y+55); 
+  }
 }

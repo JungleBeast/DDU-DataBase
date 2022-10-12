@@ -1,31 +1,23 @@
 class TextField extends Component{
-  
-  String content = ""; //laver en "tom" string til at indholde teksten
-  int Writing = 0;
-  
-TextField(int xin, int yin, int win, int hin){
-x= xin;
-y= yin;
-w= win;
-h= hin;
+String content = "";
+ 
+  TextField(int xin,int yin,int win,int hin){
+ x= xin;
+ y= yin;
+ w= win;
+ h= hin;  
 }
 
-void Tegn(){
-    stroke(100);
-    noFill();
-    rect(x, y, 300, 20);
-    fill(255);
-    text("Test" + content, x+10, y+15);
-}
-  
-  void mousePress(){
-  if(mouseX>x && mouseX < x + w && mouseY > y && mouseY<y + h){
-  SelectedField = true;
-  Writing = 2;
-  }else{
-  Writing = 0;
-  }}
-
+ void detectClick(){
+   if(mouseX > x && mouseX < x + w && 
+       mouseY > y && mouseY < y + h){
+       SelectedField = true;
+       }else{
+       SelectedField = false;{
+   }
+  }
+ }
+ 
 void WriteText(){
   if(SelectedField == true){
   if(keyCode != 8){
@@ -34,5 +26,14 @@ void WriteText(){
   content = content.substring(0,content.length()-1);  
    }
   }
+ }
+void Display(){
+  fill(10,50,100);
+  rect(x,y,w,h);
+  
+  textSize(20);
+  fill(255);
+  text("Fill in text: " + content,x - 200,y);
+ 
  }
 }

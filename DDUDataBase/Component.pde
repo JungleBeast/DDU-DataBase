@@ -19,6 +19,7 @@ float tl = r; float tr = r;
 float bl = r; float br = r;
 
 void Click(){}  
+void detectClick(){}
 void Release(){}   
 void Display(){}
 void WriteText(){}
