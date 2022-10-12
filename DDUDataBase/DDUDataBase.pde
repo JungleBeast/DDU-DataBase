@@ -57,5 +57,7 @@ void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) 
   }
 }
 void keyPressed(){
-  guiHandler.keyPress();
+ guiHandler.WriteText();
+ TF.WriteText();
+  
 }

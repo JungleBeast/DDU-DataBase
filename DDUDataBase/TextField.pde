@@ -11,25 +11,28 @@ h= hin;
 }
 
 void Tegn(){
-    noFill();
     stroke(100);
+    noFill();
     rect(x, y, 300, 20);
-    text(content, x+10, y+15);
+    fill(255);
+    text("Test" + content, x+10, y+15);
 }
   
   void mousePress(){
   if(mouseX>x && mouseX < x + w && mouseY > y && mouseY<y + h){
+  SelectedField = true;
   Writing = 2;
   }else{
   Writing = 0;
   }}
 
-void keyPress(){
-  if (Writing==2){
-  if ( keyPressed && keyCode !=8 ) {
-  content +=key; //adder den key som trykkespå til content.
-  }else{
-  content =content.substring(0, content.length()-1); //bruger substring til at til at læse længden på content og trække det seneste fra.
-  }}}
-  
+void WriteText(){
+  if(SelectedField == true){
+  if(keyCode != 8){
+  content += key;
+  }else if(content.length() > 0){
+  content = content.substring(0,content.length()-1);  
+   }
+  }
+ }
 }

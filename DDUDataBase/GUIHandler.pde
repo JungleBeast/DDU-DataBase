@@ -30,7 +30,7 @@ void displayAll(){
     C.mousePress();
 }}
   
-  void detectKeyPressed(){
+  void WriteText(){
     for(Component C : myComponents){
     C.keyPress();
 }}
