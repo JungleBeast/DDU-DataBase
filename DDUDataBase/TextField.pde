@@ -29,16 +29,16 @@ void WriteText(){
  }
 void display(){
   if(OverKnap == true){
-  fill(50,200,100);
+  fill(200,240,255);
   rect(x,y,w,h,tl,tr,bl,br) ;
   } else{
-  fill(200,50,100);
+  fill(255);
   rect(x,y,w,h,tl,tr,bl,br) ;  
   }
   
   textSize(30);
-  fill(255);
-  text("Fill in text: " + content,x+5,y+35);
+  fill(0);
+  text(content,x+10,y+35);
  
  }
 }
