@@ -11,15 +11,15 @@ class ClickButton extends Komponent{
   void detectClick(){
     if(mouseX > x && mouseX < x + w && 
        mouseY > y && mouseY < y + h){
-       SelectedField = true;}
+       OverKnap = true;}
        }
   void Release(){
-   SelectedField = false;
+   OverKnap = false;
   }
   
- void Display(){
+ void display(){
  
-   if(SelectedField){
+   if(OverKnap){
      fill(50,200,100);
    }else{
      fill(200,50,100);}

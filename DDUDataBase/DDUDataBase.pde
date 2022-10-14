@@ -1,6 +1,12 @@
-//Importing PlugIn
 import de.bezier.data.sql.*;
 MySQL msql;
+
+GUIHandler guiHandler               = new GUIHandler();
+Komponent mineKomponenter           = new Komponent();
+ClickButton CB                      = new ClickButton(200,500,200,100);
+ToggleButton TB                     = new ToggleButton(700,500,200,100);
+TextField T                         = new TextField(700,540,500,50);
+Tab Ta                              = new Tab(100,540,500,50);
 
 //Background
 int X_AXIS;
@@ -10,36 +16,20 @@ color c1, c2;
 //Import image
 PImage Logo;
 
-GUIHandler guiHandler      = new GUIHandler();
-Komponent mineKomponenter  = new Komponent();
+void settings(){
+size(500,700);
 
-Tab T                      = new Tab(420,340,300,400);
-TextField TF               = new TextField(420,340,0,0);
-ClickButton CB             = new ClickButton(250, 250, 100, 100);
-
-void setup(){
-size(840, 680);
-c1 = color(0, 39, 70);
-c2 = color(0, 0, 20);
-rectMode(CENTER);
-noLoop();
-
-guiHandler.createTextField(300,500,0,0);
-T  = guiHandler.createTab(420,340,300,400);
-TF = guiHandler.createTextField(100,500,0,0);
-CB = guiHandler.createButton(250, 250, 100, 100);
-
-Logo = loadImage("EasyNote_logo.png");
 }
 
-void draw(){ 
-//Background
-setGradient(0, 0, 840, 680, c1, c2, Y_AXIS);  
-//Logo
-Logo.resize(200,150);
-image(Logo, 20, 0);
+void setup(){
+CB = guiHandler.createButton(240,500,200,100);
+TB = guiHandler.createButtonT(1060,900,200,100);
+T  = guiHandler.createTextField(200,540,500,50);
+Ta = guiHandler.createTab(100,500,50,50);
 
-guiHandler.displayAll();
+c1 = color(50,157,200);
+c2 = color(0,0,49);
+
 }
 
 void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
@@ -55,14 +45,27 @@ void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) 
     }  
   }
 }
+
+
+void draw(){
+clear();
+strokeWeight(3);
+
+setGradient(0, 0, 500, 700, c1, c2, Y_AXIS);
+guiHandler.displayAll();
+
+
+}
+
 void mousePressed(){
-  guiHandler.detectClick();
+ guiHandler.detectClick(); 
 }
+
 void mouseReleased(){
-  guiHandler.detectRelease();
+ guiHandler.detectRelease();    
 }
+
 void keyPressed(){
- guiHandler.WriteText();
- TF.WriteText();
-  
+  guiHandler.WriteText();
+  T.WriteText();
 }

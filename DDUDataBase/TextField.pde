@@ -11,15 +11,15 @@ String content = "";
  void detectClick(){
    if(mouseX > x && mouseX < x + w && 
       mouseY > y && mouseY < y + h){
-       SelectedField = true;
+       OverKnap = true;
        }else{
-       SelectedField = false;{
+       OverKnap = false;{
    }
   }
  }
  
 void WriteText(){
-  if(SelectedField == true){
+  if(OverKnap == true){
   if(keyCode != 8){
   content += key;
   }else if(content.length() > 0){
@@ -27,17 +27,14 @@ void WriteText(){
    }
   }
  }
-void Display(){
-  if(SelectedField == true){
+void display(){
+  if(OverKnap == true){
   fill(50,200,100);
-  rect(x - 10,y - 10,w+20,h + 20) ;
+  rect(x,y,w,h,tl,tr,bl,br) ;
   } else{
   fill(200,50,100);
-  rect(x - 10,y - 10,w+20,h + 20) ;  
+  rect(x,y,w,h,tl,tr,bl,br) ;  
   }
-  
-  fill(10,50,100);
-  rect(x,y,w,h);
   
   textSize(30);
   fill(255);

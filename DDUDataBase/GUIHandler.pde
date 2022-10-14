@@ -7,21 +7,24 @@ class GUIHandler{
   mineKomponenter.add(CB);
   return CB;
  }
+  ToggleButton createButtonT(int x, int y, int w, int h){
+  ToggleButton TB = new ToggleButton(x,y,w,h);
+  mineKomponenter.add(TB);
+  return TB;
+ }
  TextField createTextField(int x, int y, int w, int h){
- TextField TF = new TextField(x,y,w,h);
- mineKomponenter.add(TF);
-   return TF;
+   TextField T = new TextField(x,y,w,h);
+   mineKomponenter.add(T);
+   return T;
  }
- 
   Tab createTab(int x, int y, int w, int h){
-  Tab T = new Tab(x,y,w,h);
-  mineKomponenter.add(T);
-  return T;
+  Tab Ta = new Tab(x,y,w,h);
+  mineKomponenter.add(Ta);
+  return Ta;
  }
-
   void displayAll(){
   for(Komponent k : mineKomponenter){
-  k.Display();
+  k.display();
   }
  }
  
@@ -44,4 +47,9 @@ class GUIHandler{
   }
  }
 }
+  
+  
+  
+  
+  
   
