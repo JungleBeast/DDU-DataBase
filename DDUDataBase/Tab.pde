@@ -1,4 +1,4 @@
-class Tab extends Component{
+class Tab extends Komponent{
 Tab(int xin, int yin, int win, int hin){
 x= xin;
 y= yin;

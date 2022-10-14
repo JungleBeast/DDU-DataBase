@@ -1,4 +1,4 @@
-class ClickButton extends Component{
+class ClickButton extends Komponent{
 
   ClickButton(int xin,int yin,int win,int hin){
  x= xin;
@@ -20,12 +20,14 @@ class ClickButton extends Component{
  void Display(){
  
    if(SelectedField){
-     fill(0,0,200);
+     fill(50,200,100);
    }else{
-     fill(255);}
+     fill(200,50,100);}
    
-    rect(x, y, w, h, tl, tr, br, bl);
+    rect(x, y, w, h);
    
+   fill(10,50,100);
+   rect(x+10,y+10,w-20,h-20); 
    fill(255);
    textSize(25);
    text("Click Button", x+35, y+55); 

@@ -1,44 +1,47 @@
 class GUIHandler{
-//Arraylist for the components
-ArrayList<Component> myComponents = new ArrayList<Component>();
+ //En ArrayList til at opbevare knapperne
+ ArrayList<Komponent> mineKomponenter = new ArrayList<Komponent>();
 
-//Components
- Tab createTab(int x, int y, int w, int h){
- Tab T = new Tab(x,y,w,h);
- myComponents.add(T);
- return T;
-}
- TextField createTextField(int x, int y, int w, int h){ 
+  ClickButton createButton(int x, int y, int w, int h){
+  ClickButton CB = new ClickButton(x,y,w,h);
+  mineKomponenter.add(CB);
+  return CB;
+ }
+ TextField createTextField(int x, int y, int w, int h){
  TextField TF = new TextField(x,y,w,h);
- myComponents.add(TF);
+ mineKomponenter.add(TF);
    return TF;
  }
  
- ClickButton createClickButton(int x, int y, int w, int h){ 
- ClickButton CB = new ClickButton(x,y,w,h);
- myComponents.add(CB);
-   return CB;
+  Tab createTab(int x, int y, int w, int h){
+  Tab T = new Tab(x,y,w,h);
+  mineKomponenter.add(T);
+  return T;
  }
 
-
   void displayAll(){
-  for(Component C : myComponents){
-    C.Display();
-}}
-  
+  for(Komponent k : mineKomponenter){
+  k.Display();
+  }
+ }
+ 
   void detectClick(){
-  for(Component C : myComponents){
-    C.Click();
-}}
-    void detectRelease(){
-  for(Component C : myComponents){
-    C.Release();
-}}
-  void WriteText(){
-  for(Component C : myComponents){
-  C.Release();
-}}
-  
-  
-  
+  for(Komponent k : mineKomponenter){
+  k.detectClick();
+  }
+ }
+ 
+ 
+  void detectRelease(){
+  for(Komponent k : mineKomponenter){
+  k.Release();
+  }  
+ }
+
+   void WriteText(){
+  for(Komponent k : mineKomponenter){
+  k.Release();
+  }
+ }
 }
+  

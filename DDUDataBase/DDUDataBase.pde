@@ -11,7 +11,7 @@ color c1, c2;
 PImage Logo;
 
 GUIHandler guiHandler      = new GUIHandler();
-Component myComponents     = new Component();
+Komponent mineKomponenter  = new Komponent();
 
 Tab T                      = new Tab(420,340,300,400);
 TextField TF               = new TextField(420,340,0,0);
@@ -26,8 +26,8 @@ noLoop();
 
 guiHandler.createTextField(300,500,0,0);
 T  = guiHandler.createTab(420,340,300,400);
-TF = guiHandler.createTextField(300,500,0,0);
-CB = guiHandler.createClickButton(250, 250, 100, 100);
+TF = guiHandler.createTextField(100,500,0,0);
+CB = guiHandler.createButton(250, 250, 100, 100);
 
 Logo = loadImage("EasyNote_logo.png");
 }
