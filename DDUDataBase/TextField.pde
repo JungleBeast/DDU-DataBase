@@ -32,8 +32,8 @@ void Display(){
   rect(x,y,w,h);
   
   textSize(20);
-  fill(255);
-  text("Fill in text: " + content,x - 200,y);
+  fill(0);
+  text("Fill in text: " + content,x,y);
  
  }
 }

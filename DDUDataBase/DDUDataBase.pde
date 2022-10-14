@@ -62,6 +62,6 @@ void mouseReleased(){
 }
 void keyPressed(){
  guiHandler.WriteText();
- TF.Release();
+ TF.WriteText();
   
 }
