@@ -3,10 +3,10 @@ class GUIHandler{
 ArrayList<Component> myComponents = new ArrayList<Component>();
 
 //Components
-Tab createTab(int x, int y, int w, int h){
-Tab T = new Tab(x,y,w,h);
-myComponents.add(T);
-return T;
+ Tab createTab(int x, int y, int w, int h){
+ Tab T = new Tab(x,y,w,h);
+ myComponents.add(T);
+ return T;
 }
  TextField createTextField(int x, int y, int w, int h){ 
  TextField TF = new TextField(x,y,w,h);
@@ -20,8 +20,9 @@ return T;
    return CB;
  }
 
-void displayAll(){
- for(Component C : myComponents){
+
+  void displayAll(){
+  for(Component C : myComponents){
     C.Display();
 }}
   
@@ -34,8 +35,8 @@ void displayAll(){
     C.Release();
 }}
   void WriteText(){
-    for(Component C : myComponents){
-    C.Release();
+  for(Component C : myComponents){
+  C.Release();
 }}
   
   

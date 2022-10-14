@@ -23,7 +23,6 @@ void detectClick(){}
 void Release(){}   
 void Display(){}
 void WriteText(){}
-void Tegn(){}
 void mousePress(){}
 void keyPress(){}
 }

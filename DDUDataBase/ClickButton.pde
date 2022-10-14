@@ -20,14 +20,12 @@ class ClickButton extends Component{
  void Display(){
  
    if(SelectedField){
-     fill(50,200,100);
+     fill(0,0,200);
    }else{
-     fill(200,50,100);}
+     fill(255);}
    
-    rect(x, y, w, h);
+    rect(x, y, w, h, tl, tr, br, bl);
    
-   fill(10,50,100);
-   rect(x+10,y+10,w-20,h-20); 
    fill(255);
    textSize(25);
    text("Click Button", x+35, y+55); 
