@@ -1,106 +1,124 @@
 import de.bezier.data.sql.*;
-MySQL msql;
+SQLite sqlite;
 
-GUIHandler guiHandler               = new GUIHandler();
-Komponent mineKomponenter           = new Komponent();
-ClickButton CB                      = new ClickButton(200,500,200,100);
-TextField T                         = new TextField(700,540,500,50);
-TextField T1                        = new TextField(700,540,500,50);
-TextField T2                        = new TextField(700,540,500,50);
-TextField T3                        = new TextField(700,540,500,50);
-TextField T4                        = new TextField(700,540,500,50);
-Tab Ta                              = new Tab(100,540,500,50);
+GuiHandler guihand = new GuiHandler();
 
-//Background
-int X_AXIS;
-int Y_AXIS;
-color c1, c2;
-
-//counter for at skifte page
-int CounterPage = 0;
-
-//Import image
-PImage Logo;
+int Submit=0;
+int SignIn=0;
+int Email=0;
+int Adgang=0;
+int lifetime = 0;
+int Navn = 0;
 
 void settings(){
-size(1000,800);
-
+  size(1000,1000);
 }
+TekstFelt t;
+TekstFelt y;
+TekstFelt l;
+Knap K1;
+Knap K2;
 
-void setup(){
-Ta = guiHandler.createTab(200,200,600,500);
-CB = guiHandler.createButton(400,550,200,100);
-T  = guiHandler.createTextField(250,400,500,50);
-T  = guiHandler.createTextField(250,300,500,50);
 
 
-c1 = color(50,157,200);
-c2 = color(0,0,49);
-
-}
-
-void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
-
-  noFill();
-
-  if (axis == Y_AXIS) {  // Top to bottom gradient
-    for (int i = y; i <= y+h; i++) {
-      float inter = map(i, y, y+h, 0, 1);
-      color c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x+w, i);
-    }  
-  }
-  
-  
-  Ta = guiHandler.createTab(200,200,600,500);
-CB = guiHandler.createButton(400,550,200,100);
-T  = guiHandler.createTextField(250,400,500,50);
-T1  = guiHandler.createTextField(250,300,500,50);
-T2  = guiHandler.createTextField(250,500,500,50);
-T3  = guiHandler.createTextField(250,400,500,50);
-T4 = guiHandler.createTextField(250,300,500,50);
-  
+void setup(){ 
+ sqlite = new SQLite(this, "mydatabase_DDU_KONTO_LOGIN.sqlite");
+ if(sqlite.connect()){
+           
+   /*
+   sqlite.query( "INSERT INTO User (email_id,adgangskode_id) VALUES ('"+t.content+ "','1') " );
+   sqlite.query( "SELECT INTO User (adgangskode_id) VALUES (content.TekstFelt) ");
+   */
+   
+ }
+ 
+  frameRate(10);
+ t = guihand.lavTekstFelt(250,280);
+ y = guihand.lavTekstFelt(250,400);
+ l = guihand.lavTekstFelt(250,340);
+ K1 = guihand.lavKlik(530,500);
+ K2 = guihand.lavKlik(310,500);
 }
 
 
 void draw(){
-clear();
-strokeWeight(3);
-
-setGradient(0, 0, 1000, 800, c1, c2, Y_AXIS);
-
-//guiHandler.displayAll();
-
-if(CounterPage<1){
-Ta.display();
-CB.display();
-T.display();
-T1.display();
-}else{
-T2.display();
-T3.display();
-T4.display();
-
+  clear();
+  fill(50,10,200);
+  rect(0,0,1000,1000);
+  fill(100,100,100);
+  guihand.displayAll();
+  
+  fill(200,200,200);
+  
+  if(Email==0){
+  text("E-mail",260,315);
+  }
+  if(Adgang==0){
+  text("Adgangskode",260,435);
+  }
+  if(Navn==0){
+  text("Fornavn",260,375);
+  }
+  
+  text("Registrer",330,550);
+  text("Log In",565,550);
+  fill(100,100,100);
+  
+  
+  if(Submit==1){
+     if(sqlite.connect()){
+           sqlite.query( "INSERT INTO User (email_id,adgangskode_id,fornavn) VALUES ('"+t.content+ "','"+y.content+"','"+l.content+"') " );
+           Submit=0;
+           lifetime = 15;
 }}
 
-void mousePressed(){
- guiHandler.detectClick();
- if(CB.OverKnap ){
-   
-   if(true){
-     CounterPage++;
-   }
-   
-   
- }
+if(SignIn==1){
+  if(sqlite.connect()){
+     sqlite.query( "SELECT INTO User (*) VALUES ()");
+    
+  }}
+
+ if(lifetime > 0){
+    ellipseMode(CENTER);
+    noStroke();
+    fill(20,200,20);
+    circle(500,350,100);
+    fill(100,100,100);
+    stroke(3);
+    lifetime=lifetime-1;
+  }
+
+
+
 }
 
-void mouseReleased(){
- guiHandler.detectRelease();    
+
+void mousePressed(){
+  guihand.detectClick();
+  
+if(mouseX>530 && mouseX<530+150 && mouseY>500 && mouseY<500+80 && mousePressed){
+SignIn++;
+//Giv en særm der siger velkommen hvis det er rigtigt. Hvis det er forkert giv en der siger inkorrekt og reset content samt tekstfelterne
+}
+
+if(mouseX>310 && mouseX<310+150 && mouseY>500 && mouseY<500+80 && mousePressed){
+Submit++;
+//reset content og clear begge tekst felter. Fjern "Registere knappen". Kan gøres ved at sætte en boks over den. 
+}
+
+
+if(mouseX>250 && mouseX<250+500 && mouseY>300 && mouseY<280+50 && mousePressed){
+Email++;
+}
+if(mouseX>310 && mouseX<250+250 && mouseY>400 && mouseY<400+50 && mousePressed){
+Adgang++;
+}
+if(mouseX>250 && mouseX<250+500 && mouseY>300 && mouseY<375+50 && mousePressed){
+Navn++;
+}
+
 }
 
 void keyPressed(){
-  guiHandler.WriteText();
-  T.WriteText();
+  guihand.detectKeyPressed();
 }

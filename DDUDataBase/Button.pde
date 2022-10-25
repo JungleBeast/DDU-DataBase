@@ -1,9 +1,10 @@
-class Button extends ClickButton{
-Button(int xin,int yin,int win,int hin){
+class Knap{
+int xpos, ypos;
+int counter = 1;
 
- super(xin,yin,win,hin);
-}
-  
-   
-  
+void Tegn(){} 
+void mousePress(){}
+void keyPress(){}
+
+
 }

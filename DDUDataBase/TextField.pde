@@ -1,44 +1,36 @@
-class TextField extends Komponent{
-String content = "";
- 
-  TextField(int xin,int yin,int win,int hin){
- x= xin;
- y= yin;
- w= win;
- h= hin;  
+class TekstFelt extends Knap{
+  String content = "";
+  int Writing = 0;
+TekstFelt(int x, int y){
+xpos = x;
+ypos = y;
 }
 
- void detectClick(){
-   if(mouseX > x && mouseX < x + w && 
-      mouseY > y && mouseY < y + h){
-       OverKnap = true;
-       }else{
-       OverKnap = false;{
-   }
-  }
- }
- 
-void WriteText(){
-  if(OverKnap == true){
-  if(keyCode != 8){
-  content += key;
-  }else if(content.length() > 0){
-  content = content.substring(0,content.length()-1);  
-   }
-  }
- }
-void display(){
-  if(OverKnap == true){
-  fill(200,240,255);
-  rect(x,y,w,h,tl,tr,bl,br) ;
-  } else{
-  fill(255);
-  rect(x,y,w,h,tl,tr,bl,br) ;  
-  }
-  
+void Tegn(){
   textSize(30);
-  fill(0);
-  text(content,x+10,y+35);
- 
- }
+  fill(500,500,500);
+  rect(xpos,ypos,500,50);
+  fill(100,100,100);
+    noFill();
+    stroke(100);
+    rect(xpos, ypos, 500, 50);
+    text(content, xpos+10, ypos+35);
+}
+  
+  
+  void mousePress(){
+  if(mouseX>xpos && mouseX<xpos+500 && mouseY>ypos && mouseY<ypos+50){
+  Writing = 2;
+  }else{
+  Writing = 0;
+  }}
+
+void keyPress(){
+  if (Writing==2){
+  if ( keyPressed && keyCode !=8 ) {
+  content +=key;
+  }else{
+  content =content.substring(0, content.length()-1);
+  }}}
+  
 }

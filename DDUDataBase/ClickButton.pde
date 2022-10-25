@@ -1,35 +1,17 @@
-class ClickButton extends Komponent{
-
-  ClickButton(int xin,int yin,int win,int hin){
- x= xin;
- y= yin;
- w= win;
- h= hin;
-}
-  
-  
-  void detectClick(){
-    if(mouseX > x && mouseX < x + w && 
-       mouseY > y && mouseY < y + h){
-       OverKnap = true;}
-       }
-  void Release(){
-   OverKnap = false;
+class KlikKnap extends Knap{
+  KlikKnap(int x, int y){
+    xpos = x;
+    ypos = y;
   }
   
- void display(){
- 
-   if(OverKnap){
-     fill(50,200,100);
-   }else{
-     fill(200,50,100);}
-   
-    rect(x, y, w, h);
-   
-   fill(10,50,100);
-   rect(x+10,y+10,w-20,h-20); 
-   fill(255);
-   textSize(25);
-   text("Click Button", x+35, y+55); 
-  }
+ void Tegn(){
+  if(mouseX>xpos && mouseX<xpos+150 && mouseY>ypos && mouseY<ypos+80 && mousePressed){
+  stroke(10);
+  fill(40,200,40);
+  rect (xpos, ypos,150,80);
+  }else{
+  fill(100,100,100);
+  stroke(10);
+  rect (xpos, ypos,150,80);
+  }}
 }
