@@ -15,8 +15,8 @@
   
  
   
-void displayAll(){
- for(Knap k : Knapper){
+  void displayAll(){
+  for(Knap k : Knapper){
     k.Tegn();
 }}
   
@@ -26,10 +26,8 @@ void displayAll(){
 }}
   
   void detectKeyPressed(){
-    for(Knap k : Knapper){
+  for(Knap k : Knapper){
     k.keyPress();
 }}
-  
-  
   
 }

@@ -10,6 +10,8 @@ int Adgang=0;
 int lifetime = 0;
 int Navn = 0;
 
+String checker1= " ";
+
 void settings(){
   size(1000,1000);
 }
@@ -27,7 +29,7 @@ void setup(){
            
    /*
    sqlite.query( "INSERT INTO User (email_id,adgangskode_id) VALUES ('"+t.content+ "','1') " );
-   sqlite.query( "SELECT INTO User (adgangskode_id) VALUES (content.TekstFelt) ");
+   sqlite.query( "SELECT (*) FROM (User)");
    */
    
  }
@@ -74,8 +76,7 @@ void draw(){
 
 if(SignIn==1){
   if(sqlite.connect()){
-     sqlite.query( "SELECT INTO User (*) VALUES ()");
-    
+     sqlite.query( "SELECT (email_id) FROM (User) VALUES ('"+checker1+"')" );
   }}
 
  if(lifetime > 0){
