@@ -9,6 +9,7 @@ int Email=0;
 int Adgang=0;
 int lifetime = 0;
 int Navn = 0;
+int a;
 
 String checker1= " ";
 
@@ -76,7 +77,10 @@ void draw(){
 
 if(SignIn==1){
   if(sqlite.connect()){
-     sqlite.query( "SELECT (email_id) FROM (User) VALUES ('"+checker1+"')" );
+     sqlite.query( "SELECT (email_id) FROM (User)" );
+     while(sqlite.next()){
+       int a =sqlite.getInt("Email");
+     }
   }}
 
  if(lifetime > 0){
