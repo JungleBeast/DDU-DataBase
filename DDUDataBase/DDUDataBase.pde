@@ -9,8 +9,7 @@ int Email=0;
 int Adgang=0;
 int lifetime = 0;
 int Navn = 0;
-int a;
-
+int adgangGivet = 0;
 String checker1= " ";
 
 void settings(){
@@ -62,10 +61,17 @@ void draw(){
   if(Navn==0){
   text("Fornavn",260,375);
   }
-  
+  if(adgangGivet > 0){
+  fill(20,200,20);  
+  rect(0,0,1000,1000);
+  fill(300,300,300);
+  text("Velkommen",450,480);
+  fill(100,100,100);
+  }else{
   text("Registrer",330,550);
   text("Log In",565,550);
   fill(100,100,100);
+  }
   
   
   if(Submit==1){
@@ -77,11 +83,18 @@ void draw(){
 
 if(SignIn==1){
   if(sqlite.connect()){
-     sqlite.query( "SELECT (email_id) FROM (User)" );
+     sqlite.query( "SELECT * FROM User" );
      while(sqlite.next()){
-       int a =sqlite.getInt("Email");
-     }
-  }}
+       String a = sqlite.getString("email_id");
+       String b = sqlite.getString("adgangskode_id");
+       
+       if(a.equals(t.content) && b.equals(y.content)){
+         adgangGivet++;
+         }else{
+         println("error");
+       }}}
+SignIn=SignIn-1;
+}
 
  if(lifetime > 0){
     ellipseMode(CENTER);
@@ -118,7 +131,7 @@ Email++;
 if(mouseX>310 && mouseX<250+250 && mouseY>400 && mouseY<400+50 && mousePressed){
 Adgang++;
 }
-if(mouseX>250 && mouseX<250+500 && mouseY>300 && mouseY<375+50 && mousePressed){
+if(mouseX>250 && mouseX<250+500 && mouseY>350 && mouseY<375+50 && mousePressed){
 Navn++;
 }
 
