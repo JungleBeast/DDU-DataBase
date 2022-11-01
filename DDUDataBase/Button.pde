@@ -5,6 +5,4 @@ int counter = 1;
 void Tegn(){} 
 void mousePress(){}
 void keyPress(){}
-
-
 }

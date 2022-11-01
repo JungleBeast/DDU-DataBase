@@ -73,6 +73,11 @@ void draw(){
            sqlite.query( "INSERT INTO User (email_id,adgangskode_id,fornavn) VALUES ('"+t.content+ "','"+y.content+"','"+l.content+"') " );
            Submit=0;
            lifetime = 15;
+           t.content = (" ");
+           y.content = (" ");
+           Email =0;
+           Adgang = 0;
+           Navn = 0;
 }}
 
 if(SignIn==1){
@@ -107,7 +112,7 @@ void mousePressed(){
   
 if(mouseX>530 && mouseX<530+150 && mouseY>500 && mouseY<500+80 && mousePressed){
 SignIn++;
-//Giv en særm der siger velkommen hvis det er rigtigt. Hvis det er forkert giv en der siger inkorrekt og reset content samt tekstfelterne
+//Giv en skærm der siger velkommen hvis det er rigtigt. Hvis det er forkert giv en der siger inkorrekt og reset content samt tekstfelterne
 }
 
 if(mouseX>310 && mouseX<310+150 && mouseY>500 && mouseY<500+80 && mousePressed){
@@ -116,13 +121,13 @@ Submit++;
 }
 
 
-if(mouseX>250 && mouseX<250+500 && mouseY>300 && mouseY<280+50 && mousePressed){
+if(mouseX>250 && mouseX<250+500 && mouseY>280 && mouseY<280+50 && mousePressed){
 Email++;
 }
 if(mouseX>310 && mouseX<250+500 && mouseY>400 && mouseY<400+50 && mousePressed){
 Adgang++;
 }
-if(mouseX>250 && mouseX<250+500 && mouseY>350 && mouseY<375+50 && mousePressed){
+if(mouseX>250 && mouseX<250+500 && mouseY>340 && mouseY<340+50 && mousePressed){
 Navn++;
 }
 
