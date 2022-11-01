@@ -26,12 +26,6 @@ Knap K2;
 void setup(){ 
  sqlite = new SQLite(this, "mydatabase_DDU_KONTO_LOGIN.sqlite");
  if(sqlite.connect()){
-           
-   /*
-   sqlite.query( "INSERT INTO User (email_id,adgangskode_id) VALUES ('"+t.content+ "','1') " );
-   sqlite.query( "SELECT (*) FROM (User)");
-   */
-   
  }
  
   frameRate(10);
@@ -93,7 +87,7 @@ if(SignIn==1){
          }else{
          println("error");
        }}}
-SignIn=SignIn-1;
+  SignIn=SignIn-1;
 }
 
  if(lifetime > 0){
@@ -105,9 +99,6 @@ SignIn=SignIn-1;
     stroke(3);
     lifetime=lifetime-1;
   }
-
-
-
 }
 
 
@@ -128,7 +119,7 @@ Submit++;
 if(mouseX>250 && mouseX<250+500 && mouseY>300 && mouseY<280+50 && mousePressed){
 Email++;
 }
-if(mouseX>310 && mouseX<250+250 && mouseY>400 && mouseY<400+50 && mousePressed){
+if(mouseX>310 && mouseX<250+500 && mouseY>400 && mouseY<400+50 && mousePressed){
 Adgang++;
 }
 if(mouseX>250 && mouseX<250+500 && mouseY>350 && mouseY<375+50 && mousePressed){
